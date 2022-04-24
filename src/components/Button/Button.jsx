@@ -1,7 +1,9 @@
-export const Button = ({ toggleVisibility, isVisiable }) => {
+import css from './Button.module.css';
+
+export const Button = ({ onClick }) => {
   return (
-    <button type="button" onClick={toggleVisibility}>
-      {isVisiable ? 'Hide films' : 'Show films'}
+    <button className={css.button} type="button" onClick={onClick}>
+      Load more
     </button>
   );
 };

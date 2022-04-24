@@ -1,24 +1,26 @@
 import PropTypes from 'prop-types';
+// import css from './FilmListItem.module.css'
 
 export const FilmListItem = ({
   img,
   title,
   id,
   watched,
-  onDeleteFilm,
   toggleWatchedFilm,
+  openModal,
 }) => {
   return (
     <>
-      <img src={`https://image.tmdb.org/t/p/w500${img}`} alt={title} />
+      <img
+        onClick={() => openModal(img)}
+        src={`https://image.tmdb.org/t/p/w500${img}`}
+        alt={title}
+      />
       <h2>{title}</h2>
       <p onClick={() => toggleWatchedFilm(id)}>
         Watched: {watched ? 'Yes' : 'No'}
         {/* Watched: {watched + ''} */}
       </p>
-      <button type="button" onClick={() => onDeleteFilm(id)}>
-        Delete
-      </button>
     </>
   );
 };

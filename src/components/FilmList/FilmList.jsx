@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
 import { FilmListItem } from 'components/FilmListItem/FilmListItem';
+import css from './FilmList.module.css';
 
-export const FilmList = ({ films, onDeleteFilm, toggleWatchedFilm }) => {
+export const FilmList = ({ films, toggleWatchedFilm, openModal }) => {
   return (
-    <ul>
+    <ul className={css.list}>
       {films.map(({ img, id, title, watched }) => (
-        <li key={id}>
+        <li className={css.item} key={id}>
           <FilmListItem
             img={img}
             title={title}
             id={id}
             watched={watched}
             toggleWatchedFilm={toggleWatchedFilm}
-            onDeleteFilm={onDeleteFilm}
+            openModal={openModal}
           />
         </li>
       ))}
